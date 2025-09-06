@@ -1,8 +1,8 @@
-R² Score tells you how well your model explains variance in the target variable. Closer to 1 is better.
+-R² Score tells you how well your model explains variance in the target variable. Closer to 1 is better.
 
-RMSE gives the average prediction error in the same unit as the target (e.g., µg/m³).
+-RMSE gives the average prediction error in the same unit as the target (e.g., µg/m³).
 
-Consider these accuracy ranges:
+-Consider these accuracy ranges:
 
 
 | R² Score  | Interpretation    |
