@@ -1,0 +1,18 @@
+import folium
+from folium.plugins import HeatMap
+
+# Sample subset for heatmap (e.g., test set with location and prediction)
+heatmap_data = pd.DataFrame(X_test, columns=X.columns)
+heatmap_data['PM2.5_pred'] = y_pred
+heatmap_data['lat'] = df.loc[X_test.index, 'latitude']
+heatmap_data['lon'] = df.loc[X_test.index, 'longitude']
+
+# Create map
+map_heat = folium.Map(location=[heatmap_data['lat'].mean(), heatmap_data['lon'].mean()], zoom_start=12)
+
+# Add heatmap layer
+heat_data = [[row['lat'], row['lon'], row['PM2.5_pred']] for _, row in heatmap_data.iterrows()]
+HeatMap(heat_data, radius=15).add_to(map_heat)
+
+# Save or display
+map_heat.save("urban_pollution_heatmap.html")
